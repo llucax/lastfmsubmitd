@@ -49,7 +49,7 @@ class Song:
         try:
             return lastfm.repr(self.dict())
         except ValueError:
-            return self.file
+            return lastfm.marshaller.guess_enc(self.file, 'utf-8')
 
     def dict(self):
         d = {'time': time.gmtime(),
